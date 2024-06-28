@@ -1,35 +1,36 @@
 <script setup>
 import { ref } from 'vue';
-const navigation = ref([
-	{
-		title: 'Dashboard',
-		icon: 'pi pi-home'
-	},
-	{
-		title: 'Profile',
-		icon: 'pi pi-user'
-	},
-	{
-		title: 'Settings',
-		icon: 'pi pi-cog'
-	},
-	{
-		title: 'Logout',
-		icon: 'pi pi-sign-out'
-	}
+import { Link, router } from '@inertiajs/vue3'
+const navItems = ref([
+  {
+    title: 'Dashboard',
+    icon: 'pi pi-home',
+    route: 'dashboard'
+  },
+  {
+    title: 'Profile',
+    icon: 'pi pi-user',
+    route: 'profile'
+  }
 ])
+
+const isCurrentRouteActive = (routeName) => {
+  const currentRoute = route().current().split('.')[0]
+  return currentRoute === routeName
+}
+
 </script>
 
 <template>
-	<nav class="flex-1 px-4 py-4 space-y-2">
-		<a
-			href="#"
-			class="flex items-center gap-[5px] py-2 px-4 font-bold rounded transition duration-200 hover:bg-blue-800 hover:text-white"
-			v-for="(item, index) in navigation"
-			:key="index"
-		>
-			<i :class="item.icon"></i>
-			<span class="ml-2">{{ item.title }}</span>
-		</a>
-	</nav>
+  <nav class="flex-1 px-4 py-4 space-y-2">
+    <Link
+        v-for="(navItem, navItemIndex) in navItems"
+        :key="navItemIndex"
+        :href="navItem.route"
+        class="flex items-center gap-[10px] py-2 px-4 font-bold rounded transition duration-200 hover:bg-blue-800 hover:text-whit"
+        :class="{'bg-blue-800': isCurrentRouteActive(navItem.route)}"
+      >
+        {{ navItem.title }}
+  </Link>
+  </nav>
 </template>
