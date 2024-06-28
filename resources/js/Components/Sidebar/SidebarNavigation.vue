@@ -14,12 +14,12 @@ const navItems = ref([
   },
   {
     title: 'Users',
-    icon: 'pi pi-user',
+    icon: 'pi pi-users',
     route: 'users'
   },
   {
     title: 'Payments',
-    icon: 'pi pi-user',
+    icon: 'pi pi-wallet',
     route: 'payments'
   },
 ])
@@ -40,6 +40,7 @@ const isCurrentRouteActive = (routeName) => {
         class="flex items-center gap-[10px] py-2 px-4 font-bold rounded transition duration-200 hover:bg-blue-800 hover:text-whit"
         :class="{'bg-blue-800': isCurrentRouteActive(navItem.route)}"
       >
+        <i :class="navItem.icon"></i>
         {{ navItem.title }}
   </Link>
   </nav>
