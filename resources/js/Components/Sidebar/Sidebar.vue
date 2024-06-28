@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue';
 import SidebarLogo from '@/Components/Sidebar/SidebarLogo.vue';
 import SidebarNavigation from '@/Components/Sidebar/SidebarNavigation.vue';
 </script>
