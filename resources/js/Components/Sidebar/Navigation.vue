@@ -1,23 +1,35 @@
 <script setup>
+import { ref } from 'vue';
+const navigation = ref([
+	{
+		title: 'Dashboard',
+		icon: 'pi pi-home'
+	},
+	{
+		title: 'Profile',
+		icon: 'pi pi-user'
+	},
+	{
+		title: 'Settings',
+		icon: 'pi pi-cog'
+	},
+	{
+		title: 'Logout',
+		icon: 'pi pi-sign-out'
+	}
+])
 </script>
 
 <template>
-    <nav class="flex-1 px-4 py-4 space-y-2">
-        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white">
-            <i class="fas fa-tachometer-alt"></i>
-            <span class="ml-2">Dashboard</span>
-        </a>
-        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white">
-            <i class="fas fa-user"></i>
-            <span class="ml-2">Profile</span>
-        </a>
-        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white">
-            <i class="fas fa-cog"></i>
-            <span class="ml-2">Settings</span>
-        </a>
-        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white">
-            <i class="fas fa-sign-out-alt"></i>
-            <span class="ml-2">Logout</span>
-        </a>
-    </nav>
+	<nav class="flex-1 px-4 py-4 space-y-2">
+		<a
+			href="#"
+			class="flex items-center gap-[5px] py-2 px-4 font-bold rounded transition duration-200 hover:bg-blue-800 hover:text-white"
+			v-for="(item, index) in navigation"
+			:key="index"
+		>
+			<i :class="item.icon"></i>
+			<span class="ml-2">{{ item.title }}</span>
+		</a>
+	</nav>
 </template>
