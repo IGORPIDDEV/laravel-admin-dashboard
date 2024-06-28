@@ -11,7 +11,17 @@ const navItems = ref([
     title: 'Profile',
     icon: 'pi pi-user',
     route: 'profile'
-  }
+  },
+  {
+    title: 'Users',
+    icon: 'pi pi-user',
+    route: 'users'
+  },
+  {
+    title: 'Payments',
+    icon: 'pi pi-user',
+    route: 'payments'
+  },
 ])
 
 const isCurrentRouteActive = (routeName) => {
