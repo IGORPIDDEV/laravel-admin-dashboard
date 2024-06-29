@@ -8,9 +8,9 @@ const navItems = ref([
     route: 'dashboard'
   },
   {
-    title: 'Profile',
+    title: 'Categories',
     icon: 'pi pi-user',
-    route: 'profile'
+    route: 'categories'
   },
   {
     title: 'Users',
